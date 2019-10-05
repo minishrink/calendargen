@@ -104,10 +104,10 @@ class Month(object):
         # weekday banner
         week_hdrs = ["#"] + WEEKDAYS_ABBREV
         weeks = [
-            # week numbers
-            ['{:>2}'.format(str(j + 1 + week_offset))] +
-            # WEEKDAYS
-            [display(i + ((j << 3) - j)) for i in range(1 - self._start, 8 - self._start)]
+                # week numbers
+                ['{:>2}'.format(str(j + 1 + week_offset))] +
+                # WEEKDAYS
+                [display(i + ((j << 3) - j)) for i in range(1 - self._start, 8 - self._start)]
                 for j in range(self.num_weeks)
-        ]
+                ]
         return Table(caption, div_name="month", headers=week_hdrs, rows=weeks)
