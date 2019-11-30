@@ -10,13 +10,13 @@ def delete_file(year) -> None:
     """
     Remove file for given year if it exists, bubble exceptions to toplevel
     """
-    try:
-        filename = "{}/{}.html".format(OUTPUT_DIR, year)
-        if exists(filename):
+    filename = "{}/{}.html".format(OUTPUT_DIR, year)
+    if exists(filename):
+        try:
             remove(filename)
-    except OSError as o:
-        print("Could not delete file")
-        raise o
+        except OSError as o:
+            print("Could not delete {}".format(filename))
+            raise o
 
 def compare_code(year: int) -> None:
     try:
@@ -27,13 +27,13 @@ def compare_code(year: int) -> None:
             expected = f.read()
         output_location = "{}/{}.html".format(OUTPUT_DIR, year)
         three_calendars(year).gen_html(TEMPLATE_FILE, output_location, year)
-        print("File generated")
+        print("{} generated".format(output_location))
         # text of test generated file
         with open(output_location, 'r') as g:
             actual = g.read()
         assert actual == expected
     except IOError as i:
-        print("Error: could not read file")
+        print("Error: could not read {}".format(pregenerated))
         raise i
     except Exception as e:
         raise e
