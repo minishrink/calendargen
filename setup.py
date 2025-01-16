@@ -6,7 +6,7 @@ setup(
     packages=['pytest'],
     url='',
     license='',
-    author='Akanksha Mathur',
-    author_email='mathur_akanksha@hotmail.com',
+    author='me',
+    author_email='',
     description='Commandline tool to generate static HTML calendars for given years under Gregorian calendar'
 )

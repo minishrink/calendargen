@@ -13,5 +13,5 @@ def main() -> None:
         print_options()
         raise e
 
-if (__name__=="__main__"):
+if __name__=="__main__":
     main()
