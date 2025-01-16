@@ -1,0 +1,5 @@
+# Generated Python cruft
+__pycache__/*
+*.pyc
+# Generated example pages
+generated/*.html
