@@ -1,13 +1,14 @@
 
 YEAR=2020
-DEST=generated/$(YEAR).html
+DEST_DIR=generated
+DEST=$(DEST_DIR)/$(YEAR).html
 
 .PHONY: gen clean test default
 
 default: gen
 
 clean:
-	rm -rf **/__pycache__ examples/*.html
+	rm -rf **/__pycache__ $(DEST_DIR)/*.html
 
 gen:
 	python3 main.py $(YEAR) $(DEST)
