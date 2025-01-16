@@ -16,7 +16,7 @@ def test_month_length() -> None:
             unit_test_month_length(month, 31)
 
 def unit_test_month_name(m: Month, expected) -> None:
-    assert m.get_name == expected
+    assert m.name == expected
 
 def test_month_name() -> None:
     for i in range(12):

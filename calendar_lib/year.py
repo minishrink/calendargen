@@ -52,17 +52,17 @@ class Year(object):
             )
 
     @property
-    def get_first_day(self) -> int:
+    def first_day(self) -> int:
         return self._first
 
     @property
-    def get_start_month(self) -> int:
+    def start_month(self) -> int:
         return self._start_m
 
     @property
-    def get_end_month(self) -> int:
+    def end_month(self) -> int:
         return self._end_m
 
     @property
-    def get_year_num(self) -> int:
+    def year_num(self) -> int:
         return self._year

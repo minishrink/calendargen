@@ -34,10 +34,10 @@ def test_year_starts_on() -> None:
     unit_test_year_starts_on(1900, 0)
 
 def unit_test_year_getters(Y: Year, y: int, first: int, start: int = 0, end: int = 11) -> None:
-    assert Y.get_first_day == first
-    assert Y.get_start_month == start
-    assert Y.get_end_month == end
-    assert Y.get_year_num == y
+    assert Y.first_day == first
+    assert Y.start_month == start
+    assert Y.end_month == end
+    assert Y.year_num == y
 
 def test_year_getters() -> None:
     unit_test_year_getters(Year(1582, 9, 11), 1582, 4, 9, 11)

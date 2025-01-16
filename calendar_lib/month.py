@@ -30,28 +30,28 @@ class Month(object):
         self._year = year
 
     @property
-    def get_name(self) -> str:
+    def name(self) -> str:
         """
         Return name of month
         """
         return MONTH_LIST[self._month].capitalize()
 
     @property
-    def get_len(self) -> int:
+    def len(self) -> int:
         """
         Return number of days in month
         """
         return self._n_days
 
     @property
-    def get_first(self) -> int:
+    def first(self) -> int:
         """
         Return weekday by number 0-6 for Monday-Sunday
         """
         return self._start
 
     @property
-    def get_first_day(self) -> str:
+    def first_day(self) -> str:
         """
         Return weekday by name
         """
@@ -61,7 +61,7 @@ class Month(object):
         return "Month({}, {}, {})".format(self._month, self._start, self._year)
 
     def __str__(self):
-        return "Month({self.get_name}, {self.get_first_day}, {self._year})".format(self=self)
+        return "Month({self.name}, {self.first_day}, {self._year})".format(self=self)
 
     @property
     def num_weeks(self) -> int:
@@ -69,9 +69,9 @@ class Month(object):
         Return how many weeks (Monday - Sunday) the month stretches over
         i.e. how many rows required in the calendar
         """
-        if self.get_len + self.get_first > 35:
+        if self.len + self.first > 35:
             return 6
-        elif self.get_len + self.get_first > 28:
+        elif self.len + self.first > 28:
             return 5
         else:
             return 4
@@ -80,7 +80,7 @@ class Month(object):
         """
         Check if calendar table for month fills entire bottom row
         """
-        return ((self._n_days + self.get_first) % 7) == 0
+        return ((self._n_days + self.first) % 7) == 0
 
     def make_table(self, week_offset: int) -> str:
         """
@@ -100,7 +100,7 @@ class Month(object):
             else:
                 return '{:>2}'.format(day)
 
-        caption="{} {}".format(self.get_name, self._year)
+        caption="{} {}".format(self.name, self._year)
         # weekday banner
         week_hdrs = ["#"] + WEEKDAYS_ABBREV
         weeks = [

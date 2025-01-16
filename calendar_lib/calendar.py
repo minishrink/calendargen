@@ -17,12 +17,12 @@ class Calendar(object):
             self._year = Year(1582, start_m=9)
 
     @property
-    def get_year(self) -> Year:
+    def year(self) -> Year:
         return self._year
 
     @property
-    def get_year_value(self) -> int:
-        return (self._year).get_year_num
+    def year_value(self) -> int:
+        return (self._year).year_num
 
     def __repr__(self):
         return "Calendar({})".format(self._year._year)
@@ -37,7 +37,7 @@ class Calendar(object):
         months = []
         for i in range(yr._start_m, yr._end_m + 1):
             m = Month(i, first_day, yr._year)
-            first_day = (first_day + m.get_len) % 7
+            first_day = (first_day + m.len) % 7
             months.append(m)
         return months
 
@@ -58,7 +58,7 @@ class Calendar(object):
         """
         Return static HTML string for given year
         """
-        year_banner = tag_data("h1", self.get_year_value)
+        year_banner = tag_data("h1", self.year_value)
         months: str = newlines([str(t) for t in self.gen_year()])
         yr_calendar = year_banner + div_tag("year", months)
         return yr_calendar
