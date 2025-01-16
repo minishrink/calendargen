@@ -20,8 +20,7 @@ def delete_file(year) -> None:
 
 def compare_code(year: int) -> None:
     try:
-        # pregenerated = "../examples/{}.html".format(year)
-        pregenerated = "examples/{}.html".format(year)
+        pregenerated = "tests/examples/{}.html".format(year)
         # text of pregenerated HTML file
         with open(pregenerated, 'r') as f:
             expected = f.read()
